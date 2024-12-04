@@ -59,3 +59,88 @@ const reverseSeq = (n) => {
 
   return reversedArray;
 };
+
+function countBy(x, n) {
+  let z = [];
+  let sum = 0;
+
+  for (let i = 0; i < n; i++) {
+    sum += x;
+    z.push(sum);
+  }
+
+  return z;
+}
+
+countBy(2, 5);
+
+// x = 1, n = 10 --> [1,2,3,4,5,6,7,8,9,10]
+// x = 2, n = 5  --> [2,4,6,8,10]
+
+function rentalCarCost(d) {
+  // Your solution here
+  const costPerDay = 40;
+  const totalCost = 0;
+  const smallDiscout = 20;
+  const bigDiscount = 50;
+  let cost = 0;
+
+  if (d >= 7) {
+    return costPerDay * d - bigDiscount;
+  } else if (d >= 3) {
+    return costPerDay * d - smallDiscout;
+  } else {
+    return costPerDay * d;
+  }
+}
+
+function positiveSum(arr) {
+  let positiveArr = [];
+  let sum = 0;
+
+  if (arr.length === 0) return (sum = 0);
+
+  for (let i = 0; i < arr.length; i++) {
+    const el = arr[i];
+    if (arr[i] > 0) {
+      positiveArr.push(el);
+      sum += el;
+    }
+  }
+  return sum;
+}
+
+// [1, -4, 7, 12] => 1+ 7 + 12 = 20
+
+function sumArray(array) {
+  let highestNum = -99999;
+  let lowestNum = 99999;
+  let arrSum = 0;
+
+  if (array.length <= 1) return "zero";
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if (element > highestNum) highestNum = element;
+    if (element < lowestNum) lowestNum = element;
+  }
+
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    arrSum += element;
+  }
+
+  return arrSum - lowestNum - highestNum;
+}
+
+// { 6, 2, 1, 8, 10 } => 16
+// { 1, 1, 11, 2, 3 } => 6
+
+function newSumArray(array) {
+  let minNumber = Math.min(...array);
+  let maxNumber = Math.max(...array);
+  const totalSum = array.reduce((a, c) => a + c, 0);
+
+  return console.log(totalSum - minNumber - maxNumber);
+}
+
+newSumArray([1, 3, 5, 6, 2]);
