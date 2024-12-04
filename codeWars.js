@@ -143,4 +143,78 @@ function newSumArray(array) {
   return console.log(totalSum - minNumber - maxNumber);
 }
 
-newSumArray([1, 3, 5, 6, 2]);
+function removeExclamationMarks(s) {
+  if (s.includes("!")) return console.log(s.replace("!", ""));
+  return "";
+}
+
+function repeatStr(n, s) {
+  let fullString = "";
+
+  for (let i = 0; n > i; i++) {
+    fullString += s;
+  }
+  return fullString;
+}
+
+function fakeBin(x) {
+  let result = "";
+
+  for (let i = 0; i < x.length; i++) {
+    const el = x[i];
+    if (el < 5) {
+      result += "0";
+    } else {
+      result += "1";
+    }
+  }
+  return result;
+}
+
+function descendingOrder(n) {
+  let numbersArr = Array.from(String(n), Number);
+  let result = "";
+
+  const sortedValues = numbersArr.toSorted((a, b) => b - a);
+
+  return console.log(Math.max(...numbersArr), Number(sortedValues.join("")));
+}
+
+function makeNegative(num) {
+  // Code? yes code!
+
+  if (num < 0) {
+    return num;
+  } else {
+    return num - (num + num);
+  }
+}
+
+// makeNegative(1);    // return -1
+// makeNegative(-5);   // return -5
+// makeNegative(0);    // return 0
+// makeNegative(0.12); // return -0.12
+
+function XO(str) {
+  //code here
+
+  let xCount = 0;
+  let oCount = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const el = str[i].toLowerCase();
+    if (el == "x") {
+      xCount++;
+    } else if (el == "o") {
+      oCount++;
+    }
+  }
+  return xCount === oCount;
+}
+
+console.log(XO("xxOo"));
+// XO("ooxx") => true
+// XO("xooxx") => false
+// XO("ooxXm") => true
+// XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+// XO("zzoo") => false
