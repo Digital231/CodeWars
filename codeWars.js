@@ -212,9 +212,25 @@ function XO(str) {
   return xCount === oCount;
 }
 
-console.log(XO("xxOo"));
 // XO("ooxx") => true
 // XO("xooxx") => false
 // XO("ooxXm") => true
 // XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 // XO("zzoo") => false
+
+function validatePIN(pin) {
+  //return true or false
+
+  if (typeof pin !== "number") {
+    return false;
+  } else if (pin.length !== 6 && pin.length !== 4) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+console.log(validatePIN(1234));
+// "1234"   -->  true
+// "12345"  -->  false
+// "a234"   -->  false
