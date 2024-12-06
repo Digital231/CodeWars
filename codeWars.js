@@ -217,20 +217,29 @@ function XO(str) {
 // XO("ooxXm") => true
 // XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 // XO("zzoo") => false
-
 function validatePIN(pin) {
-  //return true or false
+  // Ensure input is a string
+  const pinStringed = String(pin).trim();
+  //if input includes new line return false
+  if (pin.includes("\n")) {
+    return false;
+  }
 
-  if (typeof pin !== "number") {
-    return false;
-  } else if (pin.length !== 6 && pin.length !== 4) {
-    return false;
-  } else {
+  // Check if pin consists of only digits and has valid length
+  if (
+    (pinStringed.length === 4 || pinStringed.length === 6) &&
+    /^[0-9]+$/.test(pinStringed)
+  ) {
     return true;
   }
+
+  return false;
 }
 
-console.log(validatePIN(1234));
+// function validatePIN(pin) {
+//   return /^(\d{4}|\d{6})$/.test(pin)
+// }
+
 // "1234"   -->  true
 // "12345"  -->  false
 // "a234"   -->  false
