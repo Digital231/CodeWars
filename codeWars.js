@@ -243,3 +243,22 @@ function validatePIN(pin) {
 // "1234"   -->  true
 // "12345"  -->  false
 // "a234"   -->  false
+
+function disemvowel(str) {
+  let result = "";
+  for (let index = 0; index < str.length; index++) {
+    const element = str[index];
+    if ("aeiou".includes(element.toLowerCase())) {
+      result += "";
+    } else {
+      result += element;
+    }
+  }
+  return result;
+}
+
+console.log(
+  disemvowel("No offense but,\nYour writing is among the worst I've ever read")
+);
+
+// a, e, i, o, u
